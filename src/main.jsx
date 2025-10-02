@@ -11,6 +11,7 @@ import Blogs from './Components/Blog/Blogs.jsx';
 import Gallary from './Components/Gallary/Gallary.jsx';
 import Contact from './Components/Contact/Contact.jsx';
 import User from './Components/User/User.jsx';
+import GallaryDetail from './Components/GallaryDetail/GallaryDetail.jsx';
 
 
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             <User fetchPrimise={fetchPrimise} />
         </Suspense>
       },
+
+      {path: "gallary/:userId",
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/albums/${params.userId}`),
+      Component: GallaryDetail},
 
       {path:"contact", Component: Contact}
     ]

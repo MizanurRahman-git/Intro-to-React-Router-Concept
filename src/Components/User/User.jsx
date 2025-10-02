@@ -3,7 +3,7 @@ import React, { use } from 'react';
 const User = ({fetchPrimise}) => {
 
     const PromiseData = use(fetchPrimise)
-    console.log(PromiseData)
+    
 
     return (
         <div>
