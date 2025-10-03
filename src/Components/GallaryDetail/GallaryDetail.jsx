@@ -1,17 +1,20 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const GallaryDetail = () => {
 
     const details = useLoaderData()
 
-    const {userId, title} = details;
+    const navigate = useNavigate()
+
+    const {title,id} = details;
 
     return (
         <div>
             <h2>This is Gallary Details</h2>
-            <p>{userId}</p>
+            <p>{id}</p>
             <h3>{title}</h3>
+            <button onClick={() => navigate(-1)}>Go Back</button>
         </div>
     );
 };

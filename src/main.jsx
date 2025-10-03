@@ -32,20 +32,22 @@ const router = createBrowserRouter([
        Component: Gallary
       },
 
-      {path:"user",
-        element: 
-        <Suspense fallback={<h1>Loadinf...</h1>}> 
-            <User fetchPrimise={fetchPrimise} />
-        </Suspense>
-      },
-
       {path: "gallary/:userId",
         loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/albums/${params.userId}`),
       Component: GallaryDetail},
 
+      {path:"user",
+        element: 
+        <Suspense fallback={<h1>Loading...</h1>}> 
+            <User fetchPrimise={fetchPrimise} />
+        </Suspense>
+      },
+
       {path:"contact", Component: Contact}
+      
     ]
   },
+  {path:"*", element: <h1>Page Not Found: 404</h1>}
 ]);
 
 
